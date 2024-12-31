@@ -49,8 +49,8 @@ PRIMARY KEY(Id_Livro, Id_Autor)
 
 CREATE TABLE Emprestimo (
 Id int auto_increment,
-Data_Emprestimo Date Default CURRENT_TIMESTAMP,
-Data_Devolucao Date,
+Data_Emprestimo Date not null,
+Data_Devolucao Date not null,
 Id_Usuario int not null,
 Id_Aluno int not null,
 Id_Livro int not null,
