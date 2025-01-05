@@ -34,6 +34,9 @@ Repositório do projeto exemplo de um CRUD usando padrão de projetos MVC com PH
 - 34:15 Inicializando o Servidor Interno do PHP
 
 ### AULA 2 - COMO FAZER MVC COM PHP 8.4 E MYSQL - ESTRUTURA E BANCO DE DADOS DA APLICAÇÃO (42mim)
+
+Código-fonte da videoula: [1a4f09d](https://github.com/tiagotas/Biblioteca/tree/1a4f09d168606ea1fc6319ef7e7efb755d9d62ce)
+
 - 00:00 Introdução
 - 01:09 Modelagem DER do Banco de Dados
 - 02:47 Modelo lógico do Banco de Dados
@@ -49,6 +52,9 @@ Repositório do projeto exemplo de um CRUD usando padrão de projetos MVC com PH
 - 40:17 Enviando alterações para o github
 
 ### AULA 3 - COMO FAZER MVC COM PHP 8.4 E MYSQL - COMO FUNCIONA AUTOLOAD DE CLASSES E NAMESPACES (51mim)
+
+Código-fonte da videoula: [4290b1e](https://github.com/tiagotas/Biblioteca/tree/4290b1e35d47d542dc83baac1899fb4c9cddfaec)
+
 - 00:00 Introdução
 - 01:09 Inicializando o servidor interno do PHP
 - 03:20 Como parar servidor do PHP
@@ -76,6 +82,9 @@ Repositório do projeto exemplo de um CRUD usando padrão de projetos MVC com PH
 - 47:43 Porque declaramos métodos estáticos
 
 ### AULA 4 - COMO FAZER MVC COM PHP 8.4 E MYSQL - CRUD NO MYSQL PARTE I - CAMADA MODEL E DAO (1h6mim)
+
+Código-fonte da videoula: [840df0e](https://github.com/tiagotas/Biblioteca/tree/840df0e85f6d8ced48ccd405c52513f9f8f8979b)
+
 - 00:00:00 Introdução
 - 00:02:11 Análise da modelagem do banco de dados
 - 00:03:35 Análise do projeto físico do banco de dados
