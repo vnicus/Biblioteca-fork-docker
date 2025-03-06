@@ -6,7 +6,8 @@
  */
 use App\Controller\{
     AlunoController,
-    InicialController
+    InicialController,
+    LoginController
 };
 
 /* Para saber mais sobre a função 
@@ -22,6 +23,14 @@ switch($url)
 {
     case '/':
         InicialController::index();
+    break;
+    
+    case '/login':
+        LoginController::index();
+    break;
+
+    case '/logout':
+        LoginController::logout();
     break;
 
     case '/aluno':

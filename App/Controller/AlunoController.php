@@ -23,7 +23,7 @@ use App\Model\Aluno;
  * pode fazer o extends dela, por exemplo: class Teste extends AlunoController.
  * Veja mais sobre final aqui: https://www.php.net/manual/pt_BR/language.oop5.final.php
  */
-final class AlunoController
+final class AlunoController extends Controller
 {
     /**
      * Declaração de membros de classe estáticos:
@@ -33,6 +33,8 @@ final class AlunoController
      */
     public static function cadastro() : void
     {
+        parent::isProtected();  
+
         if($_SERVER['REQUEST_METHOD'] == "POST")
         {
             $model = new Aluno();
@@ -60,6 +62,8 @@ final class AlunoController
     
     public static function listar() : void
     {
+        parent::isProtected();  
+
         $aluno = new Aluno();
         $lista = $aluno->getAllRows();
 
@@ -69,6 +73,8 @@ final class AlunoController
     
     public static function delete() : void
     {
+        parent::isProtected();  
+        
         $aluno = new Aluno();
 
         $aluno->delete( (int) $_GET['id']);
