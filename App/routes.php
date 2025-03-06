@@ -4,7 +4,10 @@
  * Para saber mais sobre namespaces:
  * https://www.php.net/manual/pt_BR/language.namespaces.rationale.php
  */
-use App\Controller\AlunoController;
+use App\Controller\{
+    AlunoController,
+    InicialController
+};
 
 /* Para saber mais sobre a função 
  * parse_url: https://www.php.net/manual/pt_BR/function.parse-url.php
@@ -18,7 +21,7 @@ $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 switch($url)
 {
     case '/':
-        echo "página inicial";
+        InicialController::index();
     break;
 
     case '/aluno':
@@ -31,5 +34,9 @@ switch($url)
 
     case '/aluno/cadastro':
         AlunoController::cadastro();
+    break;
+
+    case '/aluno/delete':
+        AlunoController::delete();
     break;
 }

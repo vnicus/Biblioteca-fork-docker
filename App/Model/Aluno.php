@@ -15,7 +15,7 @@ final class Aluno
      * Declaração das propriedades conforme campos da tabela no banco de dados.
      * para saber mais sobre Propriedades de Classe, leia: https://www.php.net/manual/pt_BR/language.oop5.properties.php
      */
-    public $id, $nome, $ra, $curso;
+    public $Id, $Nome, $RA, $Curso;
 
     
     /**
@@ -30,7 +30,7 @@ final class Aluno
          * não sendo necessário armazenar o objeto em uma variável.
          * Leia sobre: https://www.php.net/manual/pt_BR/language.oop5.anonymous.php
          */
-        return (new AlunoDAO())->save($this);
+        return new AlunoDAO()->save($this);
     }
 
 
@@ -41,7 +41,7 @@ final class Aluno
      */
     function getById(int $id) : ?Aluno
     {
-        return (new AlunoDAO())->selectById($id);
+        return new AlunoDAO()->selectById($id);
     }
 
 
@@ -52,7 +52,7 @@ final class Aluno
      */
     function getAllRows() : array
     {
-        return (new AlunoDAO())->select();
+        return new AlunoDAO()->select();
     }
 
 
@@ -63,6 +63,6 @@ final class Aluno
      */
     function delete(int $id) : bool
     {
-        return (new AlunoDAO())->delete($id);
+        return new AlunoDAO()->delete($id);
     }
 }

@@ -30,7 +30,7 @@ final class AlunoDAO extends DAO
          * Uso do operador ternário para verificar se trata-se de uma inserção
          * ou de uma exclusão. Tem o mesmo efeito de um if...else, porém mais compacto.
          */
-        return ($model->id == null) ? $this->insert($model) : $this->update($model);
+        return ($model->Id == null) ? $this->insert($model) : $this->update($model);
     }
 
 
@@ -54,14 +54,14 @@ final class AlunoDAO extends DAO
         // determinada posição, ou seja, o valor que está em 3, será trocado pelo terceiro ?
         // No que o bindValue está recebendo o model que veio via parâmetro e acessamos
         // via seta qual dado do model queremos pegar para a posição em questão.
-        $stmt->bindValue(1, $model->nome);
-        $stmt->bindValue(2, $model->ra);
-        $stmt->bindValue(3, $model->curso);
+        $stmt->bindValue(1, $model->Nome);
+        $stmt->bindValue(2, $model->RA);
+        $stmt->bindValue(3, $model->Curso);
 
         // Ao fim, onde todo SQL está montando, executamos a consulta.
         $stmt->execute();
 
-        $model->id = parent::$conexao->lastInsertId();
+        $model->Id = parent::$conexao->lastInsertId();
         
         return $model;
     }
@@ -76,10 +76,10 @@ final class AlunoDAO extends DAO
         $sql = "UPDATE aluno SET nome=?, ra=?, curso=? WHERE id=? ";
 
         $stmt = parent::$conexao->prepare($sql);
-        $stmt->bindValue(1, $model->nome);
-        $stmt->bindValue(2, $model->ra);
-        $stmt->bindValue(3, $model->curso);
-        $stmt->bindValue(4, $model->id);
+        $stmt->bindValue(1, $model->Nome);
+        $stmt->bindValue(2, $model->RA);
+        $stmt->bindValue(3, $model->Curso);
+        $stmt->bindValue(4, $model->Id);
         $stmt->execute();
         
         return $model;
