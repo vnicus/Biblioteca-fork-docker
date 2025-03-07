@@ -127,5 +127,55 @@ Código-fonte da videoula: [840df0e](https://github.com/tiagotas/Biblioteca/tree
 - 01:02:30 Palavra chave ```final``` no contexto do projeto
 - 01:03:39 Testando interação com MySQL
 
+### AULA 5 - AULA 5 - COMO FAZER MVC COM PHP 8.4 E MYSQL - CRUD NO MYSQL PARTE II - CAMADA VIEW E CONTROLLER (1h4mim)
+
+Código-fonte da videoula: [17b920e](https://github.com/tiagotas/Biblioteca/tree/17b920ea2b6ee0217728468bff102f689c928543)
+
+- 00:00:00 Introdução
+- 00:00:48 Adequações no nome das Propriedades
+- 00:04:58 Análise do Modelo Entidade Relacionamento
+- 00:08:10 Ajustes para objetos anônimos
+- 00:10:44 Atualização extensão PHP Intelliphense para PHP 8.4
+- 00:16:30 Adicionando a View da Tela Inicial
+- 00:17:50 Adicionando Bootstrap ao Projeto
+- 00:18:36 Implementando a Controller da Tela Inicial
+- 00:20:37 Juntando a View e a Controller da Tela Inicial
+- 00:21:57 Adicionando o Controller da Tela inicial ao arquivo de rotas
+- 00:23:04 Ajuste da constante de VIEWS no arquivo ```lconfig.php```l
+- 00:24:26 Desenvolvendo a Tela Inicial com Bootstrap
+- 00:26:11 Implementando Menu do Sistema com Navbar do Bootstrap
+- 00:32:56 Implementando a lista de alunos com Bootstrap
+- 00:34:26 Juntando a View de Lista de Alunos com a Controller
+- 00:39:17 Iterando a lista de alunos com foreach
+- 00:42:41 Implementando o formulário de Alunos
+- 00:48:07 Recebendo dados do formulário na Controller
+- 00:51:02 Abrindo detalhes do Aluno no Formulário
+- 00:53:57 Implementando Update vindo do formulário
+- 00:58:07 Implementando a funcionalidade Delete de Aluno
+- 01:02:30 Enviando alterações para GitHub
+
+### AULA 6 - COMO FAZER MVC COM PHP 8.4 E MYSQL - SISTEMA DE LOGIN COM SESSION E COOKIE (47mim)
+
+Código-fonte da videoula: [dde4804](https://github.com/tiagotas/Biblioteca/tree/dde4804cf6b444a17720b18c9a414d67d4a01858)
+
+- 00:00 Introdução
+- 01:55 Inserindo usuários no banco de dados
+- 03:39 Definindo a Controller de Login
+- 04:20 Definindo a DAO de Login
+- 04:34 Definindo a Model de Login
+- 06:17 Programando a DAO de Login
+- 08:37 Programando a Model de Login
+- 10:00 Programando a Controller de Login
+- 13:25 Definindo e Programando a View do Login
+- 17:07 SESSIONS no PHP
+- 19:53 Definindo a rota de Logout
+- 20:12 Implementando o método de logout com ```session_destroy()```
+- 21:30 Explicando o procedimento de Login
+- 29:21 Definindo a variável ```$_SESSION```
+- 32:11 Definindo o botão de sair
+- 34:01 Protegendo as rotas - acessar apenas com Login
+- 37:55 Lembrando e-mail do usuário com ```setcookie()```
+- 43:41 Recuperando o valor de um cookie com ```$_COOKIE```
+
 ## CURTIU MEU TRABALHO?
 Você pode me ajudar com um pix para tiago@tiago.blog.br 🍻
