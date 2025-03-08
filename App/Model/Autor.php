@@ -2,7 +2,7 @@
 
 namespace App\Model;
 
-use App\DAO\AlunoDAO;
+use App\DAO\AutorDAO;
 use Exception;
 
 /**
@@ -10,7 +10,7 @@ use Exception;
  * Também é atribuído a Model a validação dos dados da View e controle de acesso aos métodos
  * da DAO.
  */
-final class Aluno extends Model
+final class Autor extends Model
 {
     /**
      * Declaração das propriedades conforme campos da tabela no banco de dados.
@@ -32,31 +32,31 @@ final class Aluno extends Model
     }
 
 
-    public ?string $RA
+    public ?string $Data_Nascimento
     {
         set
         {
             if(empty($value))
-                throw new Exception("Preencha o RA");
+                throw new Exception("Preencha a Data de Nascimento");
 
-            $this->RA = $value;
+            $this->Data_Nascimento = $value;
         }
 
-        get => $this->RA ?? null;
+        get => $this->Data_Nascimento ?? null;
     }
 
 
-    public ?string $Curso
+    public ?string $CPF
     {
         set
         {
-            if(strlen($value) < 3)
-                throw new Exception("Curso deve ter no mínimo 3 caracteres.");
+            if(strlen($value) < 11)
+                throw new Exception("CPF deve ter no mínimo 11 caracteres.");
 
-            $this->Curso = $value;
+            $this->CPF = $value;
         }
 
-        get => $this->Curso ?? null;
+        get => $this->CPF ?? null;
     }
 
 
@@ -66,7 +66,7 @@ final class Aluno extends Model
      * Declaração do método save que chamará a DAO para gravar no banco de dados
      * o model preenchido.
      */
-    function save() : Aluno
+    function save() : Autor
     {
         /**
          * Note que os objetos da classe AlunoDAO estão sendo criados de forma anônima.
@@ -74,7 +74,7 @@ final class Aluno extends Model
          * não sendo necessário armazenar o objeto em uma variável.
          * Leia sobre: https://www.php.net/manual/pt_BR/language.oop5.anonymous.php
          */
-        return new AlunoDAO()->save($this);
+        return new AutorDAO()->save($this);
     }
 
 
@@ -83,9 +83,9 @@ final class Aluno extends Model
      * O método recebe um parâmetro do tipo inteiro que é o id do registro
      * a ser recuperado do MySQL, via camada DAO.
      */
-    function getById(int $id) : ?Aluno
+    function getById(int $id) : ?Autor
     {
-        return new AlunoDAO()->selectById($id);
+        return new AutorDAO()->selectById($id);
     }
 
 
@@ -96,7 +96,7 @@ final class Aluno extends Model
      */
     function getAllRows() : array
     {
-        $this->rows = new AlunoDAO()->select();
+        $this->rows = new AutorDAO()->select();
 
         return $this->rows;
     }
@@ -109,6 +109,6 @@ final class Aluno extends Model
      */
     function delete(int $id) : bool
     {
-        return new AlunoDAO()->delete($id);
+        return new AutorDAO()->delete($id);
     }
 }

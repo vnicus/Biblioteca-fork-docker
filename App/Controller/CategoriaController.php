@@ -10,7 +10,7 @@ namespace App\Controller;
  * Definimos aqui que nossa classe precisa incluir uma classe de outro subnamespace
  * do projeto, no caso a classe Aluno do sub-namespace Model
  */
-use App\Model\Aluno;
+use App\Model\Categoria;
 use Exception;
 
 /**
@@ -24,23 +24,23 @@ use Exception;
  * pode fazer o extends dela, por exemplo: class Teste extends AlunoController.
  * Veja mais sobre final aqui: https://www.php.net/manual/pt_BR/language.oop5.final.php
  */
-final class AlunoController extends Controller
+final class CategoriaController extends Controller
 {
     public static function index() : void
     {
         parent::isProtected(); 
 
-        $model = new Aluno();
+        $model = new Categoria();
         
         try {
             $model->getAllRows();
 
         } catch(Exception $e) {
-            $model->setError("Ocorreu um erro ao buscar os alunos:");
+            $model->setError("Ocorreu um erro ao buscar as categorias:");
             $model->setError($e->getMessage());
         }
 
-        parent::render('Aluno/lista_aluno.php', $model); 
+        parent::render('Categoria/lista_categoria.php', $model); 
     } 
 
     /**
@@ -53,19 +53,17 @@ final class AlunoController extends Controller
     {
         parent::isProtected(); 
 
-        $model = new Aluno();
+        $model = new Categoria();
         
         try
         {
             if(parent::isPost())
             {
                 $model->Id = !empty($_POST['id']) ? $_POST['id'] : null;
-                $model->Nome = $_POST['nome'];
-                $model->RA = $_POST['ra'];
-                $model->Curso = $_POST['curso'];
+                $model->Descricao = $_POST['descricao'];
                 $model->save();
 
-                parent::redirect("/aluno");
+                parent::redirect("/categoria");
 
             } else {
     
@@ -80,25 +78,25 @@ final class AlunoController extends Controller
             $model->setError($e->getMessage());
         }
 
-        parent::render('Aluno/form_aluno.php', $model);        
+        parent::render('Categoria/form_categoria.php', $model);        
     } 
     
     public static function delete() : void
     {
         parent::isProtected(); 
 
-        $model = new Aluno();
+        $model = new Categoria();
         
         try 
         {
             $model->delete( (int) $_GET['id']);
-            parent::redirect("/aluno");
+            parent::redirect("/categoria");
 
         } catch(Exception $e) {
-            $model->setError("Ocorreu um erro ao excluir o aluno:");
+            $model->setError("Ocorreu um erro ao excluir a categoria:");
             $model->setError($e->getMessage());
         } 
         
-        parent::render('Aluno/lista_aluno.php', $model);  
+        parent::render('Categoria/lista_categoria.php', $model);  
     }
 }

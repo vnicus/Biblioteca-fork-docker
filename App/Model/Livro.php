@@ -2,7 +2,7 @@
 
 namespace App\Model;
 
-use App\DAO\AlunoDAO;
+use App\DAO\LivroDAO;
 use Exception;
 
 /**
@@ -10,7 +10,7 @@ use Exception;
  * Também é atribuído a Model a validação dos dados da View e controle de acesso aos métodos
  * da DAO.
  */
-final class Aluno extends Model
+final class Livro extends Model
 {
     /**
      * Declaração das propriedades conforme campos da tabela no banco de dados.
@@ -18,55 +18,71 @@ final class Aluno extends Model
      */
     public ?int $Id = null;
 
-    public ?string $Nome
+    public array $rows_categorias = [];
+    public array $rows_autores = [];
+
+    public $Id_Categoria;
+
+    public $Id_Autores;
+
+    public ?string $Titulo
     {
         set
         {
             if(strlen($value) < 3)
-                throw new Exception("Nome deve ter no mínimo 3 caracteres.");
+                throw new Exception("Título deve ter no mínimo 3 caracteres.");
 
-            $this->Nome = $value;
+            $this->Titulo = $value;
         }
 
-        get => $this->Nome ?? null;
+        get => $this->Titulo ?? null;
     }
 
-
-    public ?string $RA
-    {
-        set
-        {
-            if(empty($value))
-                throw new Exception("Preencha o RA");
-
-            $this->RA = $value;
-        }
-
-        get => $this->RA ?? null;
-    }
-
-
-    public ?string $Curso
+    public ?string $Isbn
     {
         set
         {
             if(strlen($value) < 3)
-                throw new Exception("Curso deve ter no mínimo 3 caracteres.");
+                throw new Exception("ISBN deve ter no mínimo 3 caracteres.");
 
-            $this->Curso = $value;
+            $this->Isbn = $value;
         }
 
-        get => $this->Curso ?? null;
+        get => $this->Isbn ?? null;
+    }
+
+    public ?string $Editora
+    {
+        set
+        {
+            if(strlen($value) < 3)
+                throw new Exception("Editora deve ter no mínimo 3 caracteres.");
+
+            $this->Editora = $value;
+        }
+
+        get => $this->Editora ?? null;
+    }
+
+    public ?string $Ano
+    {
+        set
+        {
+            if(strlen($value) < 3)
+                throw new Exception("Ano deve ter no mínimo 3 caracteres.");
+
+            $this->Ano = $value;
+        }
+
+        get => $this->Ano ?? null;
     }
 
 
-
-    
     /**
      * Declaração do método save que chamará a DAO para gravar no banco de dados
      * o model preenchido.
      */
-    function save() : Aluno
+    function save() : Livro
     {
         /**
          * Note que os objetos da classe AlunoDAO estão sendo criados de forma anônima.
@@ -74,7 +90,7 @@ final class Aluno extends Model
          * não sendo necessário armazenar o objeto em uma variável.
          * Leia sobre: https://www.php.net/manual/pt_BR/language.oop5.anonymous.php
          */
-        return new AlunoDAO()->save($this);
+        return new LivroDAO()->save($this);
     }
 
 
@@ -83,9 +99,9 @@ final class Aluno extends Model
      * O método recebe um parâmetro do tipo inteiro que é o id do registro
      * a ser recuperado do MySQL, via camada DAO.
      */
-    function getById(int $id) : ?Aluno
+    function getById(int $id) : ?Livro
     {
-        return new AlunoDAO()->selectById($id);
+        return new LivroDAO()->selectById($id);
     }
 
 
@@ -96,7 +112,7 @@ final class Aluno extends Model
      */
     function getAllRows() : array
     {
-        $this->rows = new AlunoDAO()->select();
+        $this->rows = new LivroDAO()->select();
 
         return $this->rows;
     }
@@ -109,6 +125,6 @@ final class Aluno extends Model
      */
     function delete(int $id) : bool
     {
-        return new AlunoDAO()->delete($id);
+        return new LivroDAO()->delete($id);
     }
 }

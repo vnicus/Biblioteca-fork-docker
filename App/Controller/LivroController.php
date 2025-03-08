@@ -10,7 +10,8 @@ namespace App\Controller;
  * Definimos aqui que nossa classe precisa incluir uma classe de outro subnamespace
  * do projeto, no caso a classe Aluno do sub-namespace Model
  */
-use App\Model\Aluno;
+
+use App\Model\{ Categoria, Livro, Autor };
 use Exception;
 
 /**
@@ -24,23 +25,23 @@ use Exception;
  * pode fazer o extends dela, por exemplo: class Teste extends AlunoController.
  * Veja mais sobre final aqui: https://www.php.net/manual/pt_BR/language.oop5.final.php
  */
-final class AlunoController extends Controller
+final class LivroController extends Controller
 {
     public static function index() : void
     {
         parent::isProtected(); 
 
-        $model = new Aluno();
+        $model = new Livro();
         
         try {
             $model->getAllRows();
 
         } catch(Exception $e) {
-            $model->setError("Ocorreu um erro ao buscar os alunos:");
+            $model->setError("Ocorreu um erro ao buscar os livros:");
             $model->setError($e->getMessage());
         }
 
-        parent::render('Aluno/lista_aluno.php', $model); 
+        parent::render('Livro/lista_livro.php', $model); 
     } 
 
     /**
@@ -53,19 +54,22 @@ final class AlunoController extends Controller
     {
         parent::isProtected(); 
 
-        $model = new Aluno();
+        $model = new Livro();
         
         try
         {
             if(parent::isPost())
             {
                 $model->Id = !empty($_POST['id']) ? $_POST['id'] : null;
-                $model->Nome = $_POST['nome'];
-                $model->RA = $_POST['ra'];
-                $model->Curso = $_POST['curso'];
+                $model->Titulo = $_POST['titulo'];
+                $model->Id_Categoria = $_POST['id_categoria'];
+                $model->Isbn = $_POST['isbn'];
+                $model->Ano = $_POST['ano'];
+                $model->Editora = $_POST['editora'];
+                $model->Id_Autores = $_POST['autor'];
                 $model->save();
 
-                parent::redirect("/aluno");
+                parent::redirect("/livro");
 
             } else {
     
@@ -80,25 +84,35 @@ final class AlunoController extends Controller
             $model->setError($e->getMessage());
         }
 
-        parent::render('Aluno/form_aluno.php', $model);        
+        /**
+         * Obtendo a lista de categorias
+         */
+        $model->rows_categorias = new Categoria()->getAllRows();
+
+        /**
+         * Obtendo a lista de autores
+         */
+        $model->rows_autores = new Autor()->getAllRows();
+
+        parent::render('Livro/form_livro.php', $model);        
     } 
     
     public static function delete() : void
     {
         parent::isProtected(); 
 
-        $model = new Aluno();
+        $model = new Livro();
         
         try 
         {
             $model->delete( (int) $_GET['id']);
-            parent::redirect("/aluno");
+            parent::redirect("/livro");
 
         } catch(Exception $e) {
-            $model->setError("Ocorreu um erro ao excluir o aluno:");
+            $model->setError("Ocorreu um erro ao excluir o livro:");
             $model->setError($e->getMessage());
         } 
         
-        parent::render('Aluno/lista_aluno.php', $model);  
+        parent::render('Livro/lista_livro.php', $model);  
     }
 }

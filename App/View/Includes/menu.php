@@ -9,8 +9,8 @@
         <a class="nav-link" href="/aluno">Aluno</a>
         <a class="nav-link" href="/emprestimo">Emprestimos</a>
         <a class="nav-link" href="/livro">Livros</a>
-        <a class="nav-link" href="/cadastro">Categorias</a>
-        <a class="nav-link" href="/autores">Autores</a>
+        <a class="nav-link" href="/categoria">Categorias</a>
+        <a class="nav-link" href="/autor">Autores</a>
         <a class="nav-link" href="/logout">Sair</a>
       </div>
     </div>

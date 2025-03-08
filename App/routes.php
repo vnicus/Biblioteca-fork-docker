@@ -7,7 +7,10 @@
 use App\Controller\{
     AlunoController,
     InicialController,
-    LoginController
+    LoginController,
+    AutorController,
+    CategoriaController,
+    LivroController,
 };
 
 /* Para saber mais sobre a função 
@@ -21,10 +24,18 @@ $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
  */
 switch($url)
 {
+    /**
+     * Para saber mais sobre o Operador de Resolução de Escopo (::), 
+     * leia: https://www.php.net/manual/pt_BR/language.oop5.paamayim-nekudotayim.php
+     */
     case '/':
         InicialController::index();
     break;
     
+
+    /**
+     * Rotas para Login
+     */
     case '/login':
         LoginController::index();
     break;
@@ -33,12 +44,12 @@ switch($url)
         LoginController::logout();
     break;
 
-    case '/aluno':
-        /**
-         * Para saber mais sobre o Operador de Resolução de Escopo (::), 
-         * leia: https://www.php.net/manual/pt_BR/language.oop5.paamayim-nekudotayim.php
-         */
-        AlunoController::listar();
+
+    /**
+     * Rotas para alunos
+     */
+    case '/aluno':        
+        AlunoController::index();
     break;
 
     case '/aluno/cadastro':
@@ -48,4 +59,52 @@ switch($url)
     case '/aluno/delete':
         AlunoController::delete();
     break;
+
+
+    /**
+     * Rotas para autores
+     */
+    case '/autor':        
+        AutorController::index();
+    break;
+
+    case '/autor/cadastro':
+        AutorController::cadastro();
+    break;
+
+    case '/autor/delete':
+        AutorController::delete();
+    break;
+
+
+    /**
+     * Rotas para categorias
+     */
+    case '/categoria':        
+        CategoriaController::index();
+    break;
+
+    case '/categoria/cadastro':
+        CategoriaController::cadastro();
+    break;
+
+    case '/categoria/delete':
+        CategoriaController::delete();
+    break;
+
+
+    /**
+     * Rotas para livros
+     */
+    case '/livro':        
+        LivroController::index();
+    break;
+
+    case '/livro/cadastro':
+        LivroController::cadastro();
+    break;
+
+    case '/livro/delete':
+        LivroController::delete();
+    break;    
 }
