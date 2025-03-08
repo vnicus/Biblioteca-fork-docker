@@ -48,4 +48,9 @@ final class LoginController
         session_destroy();
         header("Location: /login");
     }
+
+    public static function getUsuario() : Login
+    {
+        return unserialize(serialize($_SESSION['usuario_logado']));
+    }
 }

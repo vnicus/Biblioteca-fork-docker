@@ -11,6 +11,7 @@ use App\Controller\{
     AutorController,
     CategoriaController,
     LivroController,
+    EmprestimoController
 };
 
 /* Para saber mais sobre a função 
@@ -106,5 +107,21 @@ switch($url)
 
     case '/livro/delete':
         LivroController::delete();
-    break;    
+    break; 
+    
+
+    /**
+     * Rotas para Emprestimo
+     */
+    case '/emprestimo':        
+        EmprestimoController::index();
+    break;
+
+    case '/emprestimo/cadastro':
+        EmprestimoController::cadastro();
+    break;
+
+    case '/emprestimo/delete':
+        EmprestimoController::delete();
+    break;  
 }
