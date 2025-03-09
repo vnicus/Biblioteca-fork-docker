@@ -1,7 +1,18 @@
-Repositório do projeto exemplo de um CRUD usando padrão de projetos MVC com PHP 8.4 e MySQL
+Curso completo de MVC com PHP 8.4 usando MySQL com padrão de projetos DAO. O curso tem quase 8 horas de conteúdo e está disponpivel gratuítamente no YouTube, link da playlist abaixo.
+Neste curso são abordadas as novas funcionalidades do PHP 8.4, como Property Hooks e inicialização de objetos anônimos. Além de recursos já conhecidos como Type Hint, nullsafe operator e null coalescing.
+
+## CURTIU MEU TRABALHO?
+Você pode me ajudar com um PIX para tiago@tiago.blog.br 🍻
 
 ## Playlist com todas as videoaulas de construção desse projeto
 - https://www.youtube.com/watch?v=4h6j3ODwsEw&list=PLHVpcBDJr5dmL-5tYqBmf_PxJrtrdAMT6
+
+## Como ver funcionando:
+- Faça o Forward Engineer do Banco de Dados no MySQL Workbench
+- Abra a pasta App no VS Code e via terminal inicialize o servidor do PHP
+- Se necessário, edite os dados de conexão com MySQL no PHP (host, porta, usuário e senha)
+- ``` php -S localhost:8000 ```
+- Acesse no seu navegador: http://localhost:8000
 
 ## Conteúdo das Videoaulas
 ### AULA 1 - COMO FAZER MVC COM PHP 8.4 E MYSQL - AMBIENTE DE DESENVOLVIMENTO (37mim)
@@ -141,7 +152,7 @@ Código-fonte da videoula: [17b920e](https://github.com/tiagotas/Biblioteca/tree
 - 00:18:36 Implementando a Controller da Tela Inicial
 - 00:20:37 Juntando a View e a Controller da Tela Inicial
 - 00:21:57 Adicionando o Controller da Tela inicial ao arquivo de rotas
-- 00:23:04 Ajuste da constante de VIEWS no arquivo ```lconfig.php```l
+- 00:23:04 Ajuste da constante de VIEWS no arquivo ```lconfig.php```
 - 00:24:26 Desenvolvendo a Tela Inicial com Bootstrap
 - 00:26:11 Implementando Menu do Sistema com Navbar do Bootstrap
 - 00:32:56 Implementando a lista de alunos com Bootstrap
@@ -176,6 +187,76 @@ Código-fonte da videoula: [dde4804](https://github.com/tiagotas/Biblioteca/tree
 - 34:01 Protegendo as rotas - acessar apenas com Login
 - 37:55 Lembrando e-mail do usuário com ```setcookie()```
 - 43:41 Recuperando o valor de um cookie com ```$_COOKIE```
+
+### AULA 7 - COMO FAZER MVC COM PHP 8.4 E MYSQL - TRATAMENTO DE ERROS E INSERT EM ENTIDADES N:N (1h45mim)
+
+Código-fonte da videoula: [ea32567](https://github.com/tiagotas/Biblioteca/tree/ea32567d99ea0a1f24b9c1816076378873cebcd3)
+
+- 00:00:00 Introdução
+- 00:03:43 Criação do Método ```render()``` na Controller
+- 00:06:01 Porque usar a palavra chave ```final```
+- 00:09:43 Refatorando o método listar da AlunoController
+- 00:10:58 Definindo a classe abstrata Model
+- 00:16:07 Definindo o tipo do parâmetro ```$model``` no método ```render()```
+- 00:17:54 Tratando mensagens de erro com Exception
+- 00:21:42 Definindo os métodos ```setError()``` e ```getErrors()``` na Model
+- 00:28:56 Introduzindo as Property Hooks do PHP
+- 00:35:26 Operador Null Coalescing
+- 00:36:49 Apresentando as mensagens de validação na View
+- 00:40:48 Definindo o método ```isPost()``` na Controller
+- 00:42:26 Definindo o método ```redirect()``` na Controller
+- 00:44:14 Padronizando os métodos e rotas
+- 00:48:56 Testando mensagens de erro
+- 00:50:43 Refatorando o método ```delete()``` da Controller
+- 00:53:47 Implementando as entidades Categoria e Autor
+- 00:57:32 Implementando Crud da entidade Livro
+- 00:58:50 Vinculando as entidades Categoria e Livro - Relação 1:N
+- 01:06:30 Ajuste das rotas no menu de navegação
+- 01:06:45 Vinculando as entidades Autor e Livro - Relação N:N
+- 01:07:29 Selecionando vários autores por Livros - Relação N:N
+- 01:15:13 Como é a chegada de múltiplas checkbox no ```$_POST```
+- 01:17:25 Usando ```var_dump()``` para ver o preenchimento da Model
+- 01:19:40 Inserindo em mais de uma tabela usando ```transactions``` do PDO
+- 01:27:00 Importância do ```commit``` nas ```transations``` em PDO
+- 01:27:58 Update, Delete e Insert na mesma transaction com PDO
+- 01:33:35 Selecionando dinamicamente uma option do select de Categoria
+- 01:36:41 Selecionando dinamicamente uma checkbox dos Autores
+- 01:42:31 Usando a função ```in_array()``` para selecionar o checkbox
+- 01:43:58 Testando as funcionalidades da entidade Livro
+
+### AULA 8 - COMO FAZER MVC COM PHP 8.4 E MYSQL - NULLABLE OPERATOR E SERIALIZE DE SESSIONS(47mim)
+
+Código-fonte da videoula: [5ef9483](https://github.com/tiagotas/Biblioteca/tree/5ef9483bc0acffc1f50569daf13a1d99af369905)
+
+- 00:00 Introdução
+- 03:22 Criando o arquido das Views de Empréstimo
+- 04:24 Criando o arquivo da Model de Empréstimo
+- 04:36 Criando o arquivo da DAO de Empréstimo
+- 04:57 Criando o arquivo da Controller de Empréstimo
+- 05:40 Implementando as rotas para Empréstimo
+- 06:52 Implementando a Controller de Empréstimo
+- 09:06 Implementando a Model de Empréstimo 
+- 09:51 Implementando a DAO de Empréstimo
+- 12:07 Definindo as Propriedades da Model de Empréstimo
+- 13:24 Refatorando o método ```insert()``` na DAO de Empréstimo
+- 15:41 Refatorando o método ```update()``` na DAO de Empréstimo
+- 17:17 Refatorando o método ```selectById()``` na DAO de Empréstimo
+- 18:34 Refatorando o método ```select()``` na DAO de Empréstimo
+- 19:00 Definindo a propriedade Dados_Aluno e Dados_Livro na Model de Empréstimo
+- 23:27 Refatorando o método Delete da DAO de Empréstimo
+- 24:01 Refatorando a View de Listagem de Empréstimo
+- 29:15 Analisando o array de objetos Empréstimo com ```var_dump()```
+- 31:04 Refatorando a View de Formulário de Empréstimo
+- 31:57 Definindo a lista de alunos no cadastro de Empréstimo
+- 36:04 Definindo a listagem de alunos e de livros na Model de Empréstimo
+- 37:01 Carregando os registros de Alunos e Livros na Controller Empréstimo
+- 38:55 Usando o operador nullsafe (nulo-seguro) no PHP
+- 43:01 Refatorando a funcionalidade de Insert na Controller de Empréstimo
+- 45:38 Definido método para obter dados do usuário na LoginController
+- 46:00 Usando as funções ```serialize()``` e ```unserialize()``` para pegar objetos da ```$_SESSION```
+- 51:11 Selecionando dinamicamente Aluno e Livro no cadastro de Empréstimo
+- 54:07 Testando as funcionalidades CRUD de Empréstimo
+- 54:46 Conclusão e agradecimentos
 
 ## CURTIU MEU TRABALHO?
 Você pode me ajudar com um pix para tiago@tiago.blog.br 🍻
