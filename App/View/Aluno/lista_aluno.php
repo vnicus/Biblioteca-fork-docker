@@ -12,13 +12,9 @@
 
     <div>
         <?php include VIEWS . '/Includes/menu.php' ?>
-
         <h1>Lista de Alunos</h1>
-
         <a href="/aluno/cadastro">Novo Aluno</a>
-
         <?= $model->getErrors() ?>
-
         <table class="table">
             <thead>
                 <tr>
@@ -31,7 +27,8 @@
                 <?php foreach($model->rows as $aluno): ?>
                 <tr>
                     <td> <?= $aluno->Id ?> </td>
-                    <td> <a href="/aluno/cadastro?id=<?= $aluno->Id ?>"><?= $aluno->Nome ?></a> </td>
+                    <td> <a href="/aluno/cadastro?id=<?= $aluno->Id ?>">
+                        <?= $aluno->Nome ?></a> </td>
                     <td> <?= $aluno->Curso ?> </td>
                     <td> <a href="/aluno/delete?id=<?= $aluno->Id ?>">Remover</a> </td>
                 </tr>

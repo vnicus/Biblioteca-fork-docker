@@ -1,9 +1,5 @@
 <?php
 
-/**
- * Para saber mais sobre namespaces:
- * https://www.php.net/manual/pt_BR/language.namespaces.rationale.php
- */
 use App\Controller\{
     AlunoController,
     InicialController,
@@ -14,25 +10,15 @@ use App\Controller\{
     EmprestimoController
 };
 
-/* Para saber mais sobre a função 
- * parse_url: https://www.php.net/manual/pt_BR/function.parse-url.php
- */
 $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
-/**
- * Para saber mais estrutura switch,
- * leia: https://www.php.net/manual/pt_BR/control-structures.switch.php
- */
+//var_dump($url);
+
 switch($url)
 {
-    /**
-     * Para saber mais sobre o Operador de Resolução de Escopo (::), 
-     * leia: https://www.php.net/manual/pt_BR/language.oop5.paamayim-nekudotayim.php
-     */
     case '/':
         InicialController::index();
-    break;
-    
+    break;    
 
     /**
      * Rotas para Login
@@ -44,7 +30,6 @@ switch($url)
     case '/logout':
         LoginController::logout();
     break;
-
 
     /**
      * Rotas para alunos
@@ -61,7 +46,6 @@ switch($url)
         AlunoController::delete();
     break;
 
-
     /**
      * Rotas para autores
      */
@@ -76,7 +60,6 @@ switch($url)
     case '/autor/delete':
         AutorController::delete();
     break;
-
 
     /**
      * Rotas para categorias
@@ -93,7 +76,6 @@ switch($url)
         CategoriaController::delete();
     break;
 
-
     /**
      * Rotas para livros
      */
@@ -109,7 +91,6 @@ switch($url)
         LivroController::delete();
     break; 
     
-
     /**
      * Rotas para Emprestimo
      */
@@ -117,7 +98,7 @@ switch($url)
         EmprestimoController::index();
     break;
 
-    case '/emprestimo/cadastro':
+    case '/emprestimo/cadastro':-
         EmprestimoController::cadastro();
     break;
 

@@ -55,6 +55,10 @@ final class LivroController extends Controller
         parent::isProtected(); 
 
         $model = new Livro();
+
+        echo "Estou onde quero";
+
+        var_dump($model->Id_Autores);
         
         try
         {

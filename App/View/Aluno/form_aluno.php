@@ -23,15 +23,18 @@
            
             <div class="mb-3">
                 <label for="nome" class="form-label">Nome:</label>
-                <input type="text" value="<?= $model->Nome ?>" class="form-control" name="nome" id="nome">
+                <input type="text" value="<?= $model->Nome ?>" 
+                       class="form-control" name="nome" id="nome">
             </div>
             <div class="mb-3">
                 <label for="ra" class="form-label">RA:</label>
-                <input type="text" value="<?= $model->RA ?>"  class="form-control" name="ra" id="ra">
+                <input type="text" value="<?= $model->RA ?>"  
+                       class="form-control" name="ra" id="ra">
             </div>
             <div class="mb-3">
                 <label for="curso" class="form-label">Curso:</label>
-                <input type="text" value="<?= $model->Curso ?>"  class="form-control" name="curso" id="curso">
+                <input type="text" value="<?= $model->Curso ?>"  
+                class="form-control" name="curso" id="curso">
             </div>            
             <button type="submit" class="btn btn-success">Salvar</button>
 
