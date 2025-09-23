@@ -1,7 +1,6 @@
-version: '3.8'
-
 services:
   php:
+    container_name: meu_php
     build:
       context: .
       dockerfile: Dockerfile
@@ -20,5 +19,6 @@ services:
       - "3307:3306"
     volumes:
       - mysql-data:/var/lib/mysql
+
 volumes: 
   mysql-data:
