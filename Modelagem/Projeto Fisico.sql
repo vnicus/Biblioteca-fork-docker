@@ -31,7 +31,7 @@ Curso varchar(150),
 PRIMARY KEY(Id)
 );
 
-CREATE TABLE Usuario (
+CREATE TABLE usuario (
 Id int auto_increment,
 Nome varchar(150),
 Email varchar(150),
